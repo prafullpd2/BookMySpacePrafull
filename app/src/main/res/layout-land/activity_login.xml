@@ -1,0 +1,104 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.neoresearch.bookmyspace.Login"
+    android:background="@drawable/back"
+    android:clickable="true"
+    >
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:hint="Mobile Number"
+        android:textColor="#ffffffff"
+        android:width="300sp"
+        android:inputType="phone"
+        android:autoText="false"
+        android:backgroundTint="#ffffff"
+
+        android:phoneNumber="true"
+
+        android:layout_gravity="left"
+        android:layout_marginTop="133dp"
+        android:layout_below="@+id/textView5"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:width="300sp"
+        android:hint="Password"
+        android:autoText="false"
+        android:backgroundTint="#ffffff"
+        android:layout_marginTop="84dp"
+        android:layout_below="@+id/editText"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/button"
+        android:textSize="20sp"
+        android:background="@color/colorBackground"
+        android:nestedScrollingEnabled="true"
+        android:layout_marginTop="70dp"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:src="@drawable/arw"
+        android:background="@android:color/transparent"
+
+
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Swipe Left to Register"
+        android:id="@+id/textView"
+        android:nestedScrollingEnabled="true"
+        android:background="@android:color/transparent"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+
+        android:layout_marginTop="74dp"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Book My Space"
+        android:id="@+id/textView5"
+        android:textSize="30dp"
+        android:background="#00000000"
+        android:textColor="#ffffff"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
+</RelativeLayout>
+</ScrollView>
