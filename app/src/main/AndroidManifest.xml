@@ -4,6 +4,11 @@
 
     <uses-sdk android:minSdkVersion="9" />
 
+
+    <permission
+        android:name="com.neoresearch.bookmyspace.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.neoresearch.bookmyspace.permission.MAPS_RECEIVE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -55,6 +60,11 @@
         <activity
             android:name=".PopupOnMap"
             android:label="@string/title_activity_popup_on_map"
+            android:theme="@style/MyMaterialTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ConfirmationForBooking"
+            android:label="@string/title_activity_confirmation_for_booking"
             android:theme="@style/MyMaterialTheme.NoActionBar" >
         </activity>
     </application>

@@ -26,5 +26,6 @@
     <string name="title_activity_users_navigation_drawer">Use Parking</string>
     <string name="title_activity_mmmmmmmmmmmmmmmmm">Map</string>
     <string name="title_activity_popup_on_map">PopupOnMap</string>
+    <string name="title_activity_confirmation_for_booking">ConfirmationForBooking</string>
 
 </resources>
