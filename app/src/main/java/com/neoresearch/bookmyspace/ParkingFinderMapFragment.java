@@ -40,7 +40,7 @@ public class ParkingFinderMapFragment extends Fragment implements View.OnClickLi
     Button  searchButton, rangeIncrement, rangeDecrement;
     TextView rangeText;
     AutoCompleteTextView searchText;
-    LatLng latLng,resultLatLng;
+    LatLng latLng,resultLatLng,currentLatLng;
     Marker resultMarker = null;
     MarkerOptions markerOptions,resultMarkerOption=null;
     MapView mMapView;
@@ -51,36 +51,12 @@ public class ParkingFinderMapFragment extends Fragment implements View.OnClickLi
     private Address addressOfResult;
 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // inflat and return the layout
+        // inflate and return the layout
         v = inflater.inflate(R.layout.fragment_parking_finder_map, container,
                 false);
 
@@ -120,22 +96,19 @@ public class ParkingFinderMapFragment extends Fragment implements View.OnClickLi
                 .newCameraPosition(cameraPosition));
 
         // Perform any camera updates here
-
         googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-
-
-
-                if(!marker.equals(resultMarker)) {
+                if (!marker.equals(resultMarker)) {
                     PopupOnMap pop = new PopupOnMap(getActivity());
                     pop.show();
                     pop.setName("prafull", marker.getTitle(), "8269564260");
-
                 }
                 return false;
             }
         });
+
+
 
         searchText = (AutoCompleteTextView) v.findViewById(R.id.search_on_map);
         searchButton = (Button) v.findViewById(R.id.button_search);
@@ -146,17 +119,19 @@ public class ParkingFinderMapFragment extends Fragment implements View.OnClickLi
         searchButton.setOnClickListener(this);
         rangeDecrement.setOnClickListener(this);
         rangeIncrement.setOnClickListener(this);
+
+        googleMap.setMyLocationEnabled(true);
+
+
         searchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-
 
                 if (actionId == EditorInfo.IME_ACTION_SEARCH ||
                         actionId == EditorInfo.IME_ACTION_DONE ||
                         actionId == EditorInfo.IME_ACTION_GO ||
                         event.getAction() == KeyEvent.ACTION_DOWN &&
-                                event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-
+                        event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                     // hide virtual keyboard
                     getResultForSearch();
                     return true;
@@ -241,6 +216,31 @@ public class ParkingFinderMapFragment extends Fragment implements View.OnClickLi
         mMapView.onLowMemory();
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
 
 
 
