@@ -4,8 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import java.util.List;
-
 public class PageAdapterPP extends FragmentPagerAdapter {
 
 
@@ -32,15 +30,19 @@ public class PageAdapterPP extends FragmentPagerAdapter {
                 case 0:
                     Locations loc = new Locations();
                      return loc;
+
                   //  Login log=new Login();
                   //  return log;
 
                 case 1:
                     AddLocations ad=new AddLocations();
                     return ad;
+
                    // Register r=new Register();
                    // return r;
-
+             /*   case 2:
+                    LocationsMap lm=new LocationsMap();
+                    return lm;*/
 
             }
             return null;

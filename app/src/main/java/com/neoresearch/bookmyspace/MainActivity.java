@@ -43,6 +43,7 @@ ImageButton provide_parking,use_parking;
         provide_parking.setOnClickListener(this);
         use_parking.setOnClickListener(this);
 
+
     }
 
 
@@ -67,7 +68,7 @@ ImageButton provide_parking,use_parking;
            case R.id.action_logout :session.logoutUser();
                Intent i=new Intent(MainActivity.this,LoginRegisterActivity.class);
                startActivity(i);
-               Toast.makeText(MainActivity.this,"Logged Out Successfully",Toast.LENGTH_SHORT).show();
+               Toast.makeText(MainActivity.this, "Logged Out Successfully", Toast.LENGTH_SHORT).show();
                return true;
 
 
@@ -86,13 +87,10 @@ ImageButton provide_parking,use_parking;
                 break;}
 
             case R.id.use_parking:
-            {
                 Intent i = new Intent(MainActivity.this,UsersNavigationDrawer.class);
                 startActivity(i);
-                Log.d("Go User", "Code Accessed");
-                break;
+                Log.d("Go User", "User's Code Accessed");
 
-            }
         }
 
         }

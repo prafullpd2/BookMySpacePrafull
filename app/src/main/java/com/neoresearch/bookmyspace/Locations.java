@@ -14,10 +14,12 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,11 +28,11 @@ public class Locations extends Fragment implements View.OnClickListener {
     public String mobile;
     GridView grid;
     ArrayAdapter<String> adapter;
-    JSONArray  locations;
-  //  String locations;
+    JSONArray locations;
+   String loc_name;
     SessionManager session;
     TextView loc;
-    String [] langs;
+    String[] langs;
     //String[] list;
     protected ProgressDialog pDialog;
     List<String> list;
@@ -137,6 +139,8 @@ public class Locations extends Fragment implements View.OnClickListener {
             grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    loc_name=adapter.getItem(position).toString();
+                    new DeleteLocation().execute();
                     Toast.makeText(getActivity().getApplicationContext(), "You Clicked on : " + adapter.getItem(position), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -150,4 +154,76 @@ public class Locations extends Fragment implements View.OnClickListener {
 
     }
 
+
+    class DeleteLocation extends AsyncTask<String, String, String> {
+
+        @Override
+        protected void onPreExecute() {
+
+            pDialog = new ProgressDialog(getActivity());
+            pDialog.setMessage("Deleting Location...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+
+
+
+        }
+
+        @Override
+        protected String doInBackground(String... args) {
+            int success;
+
+
+
+
+            try {
+                // Building Parameters
+                List<NameValuePair> params = new ArrayList<>();
+                params.add(new BasicNameValuePair("mobile", mobile));
+                params.add(new BasicNameValuePair("location_name", loc_name));
+
+
+
+                Log.d("request!", "starting");
+                // getting product details by making HTTP request
+                JSONObject json = jsonParser.makeHttpRequest(LOCATION_URL, "POST", params);
+                // check your log for json response
+                Log.d("Sending Mobile", json.toString());
+                // json success tag
+                success = json.getInt(TAG_SUCCESS);
+
+
+                if (success == 1) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Locations Deleted!!!", Toast.LENGTH_LONG).show();
+                    Log.d("Locations Added", json.toString());
+                    //***CODE HERE TO SHOW LOCATIONS*****
+
+                    return json.getString(TAG_SUCCESS);
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Error Occured!!!", Toast.LENGTH_LONG).show();
+                    Log.d("Error Occured", json.getString(TAG_SUCCESS));
+                    //*****CODE HERE TO SHOW EMPTY SCREEN********
+
+                    return json.getString(TAG_SUCCESS);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String file_url) {
+            pDialog.dismiss();
+
+
+            if (file_url != null) {
+                Toast.makeText(getActivity().getApplicationContext(), file_url, Toast.LENGTH_LONG).show();
+            }
+
+
+        }
+
+    }
 }

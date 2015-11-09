@@ -5,11 +5,6 @@
     android:fillViewport="true"
     android:scrollbars="none"
     android:background="@color/colorPrimary">
-    <com.andexert.library.RippleView
-        android:id="@+id/more"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -28,13 +23,11 @@
         android:id="@+id/register_name"
         android:layout_marginTop="15dp"
         android:hint="Full Name"
-        android:width="300dp"
+        android:width="300sp"
         android:textColor="#ffffffff"
         android:backgroundTint="#ffffff"
         android:layout_below="@+id/textView6"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentLeft="false"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false" />
 
@@ -46,13 +39,12 @@
         android:id="@+id/register_contact"
         android:layout_marginTop="20dp"
         android:hint="Contact Number"
-        android:width="300dp"
+        android:width="300sp"
         android:textColor="#ffffffff"
         android:autoText="true"
         android:backgroundTint="#ffffff"
         android:layout_below="@+id/register_name"
-        android:layout_alignStart="@+id/register_name"
-        android:layout_alignLeft="@+id/register_name" />
+        android:layout_alignStart="@+id/register_name" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -61,12 +53,11 @@
         android:ems="10"
         android:id="@+id/register_email"
         android:hint="Em@il"
-        android:width="300dp"
+        android:width="300sp"
         android:textColor="#fffffefc"
         android:backgroundTint="#ffffff"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/register_contact"
-        android:layout_alignLeft="@+id/register_contact"
         android:layout_alignStart="@+id/register_contact" />
 
     <EditText
@@ -76,7 +67,7 @@
         android:ems="10"
         android:id="@+id/register_password"
         android:hint="Password"
-        android:width="300dp"
+        android:width="300sp"
         android:textColor="#ffffffff"
         android:backgroundTint="#ffffff"
         android:layout_below="@+id/register_email"
@@ -94,18 +85,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
-
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton2"
         android:src="@drawable/arw"
         android:background="@android:color/transparent"
-        android:layout_marginTop="26dp"
         android:layout_below="@+id/register_submit"
-        android:layout_alignLeft="@+id/register_password"
-        android:layout_alignStart="@+id/register_password" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -117,7 +106,8 @@
         android:textSize="20dp"
         android:textColor="#ffffff"
         android:layout_alignBottom="@+id/imageButton2"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/imageButton2"
+        android:layout_toEndOf="@+id/imageButton2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -131,5 +121,4 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
-    </com.andexert.library.RippleView>
 </ScrollView>

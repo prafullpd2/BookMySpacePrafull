@@ -1,7 +1,5 @@
 package com.neoresearch.bookmyspace;
-import android.app.ActionBar.*;
 import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -10,7 +8,7 @@ import android.view.MenuItem;
 
 
 public class
-        LoginRegisterActivity extends ActionBarActivity{
+        LoginRegisterActivity extends ActionBarActivity {
 ViewPager viewPager;
 
     @Override
